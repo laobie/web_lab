@@ -3,15 +3,17 @@
  */
 
 var gankURL = 'http://gank.io/api/day/';
-var demo = new Vue({
+var vm = new Vue({
 
     el: '#app',
 
     data: {
         branches: ['master', 'dev'],
         currentBranch: 'master',
+        day: new Date(),
         dayData: {
-            results: [{}]
+            category: [],
+            results: null
         }
     },
 
@@ -19,10 +21,20 @@ var demo = new Vue({
         this.getDayData()
     },
 
-    methods: {
-        getToday: function () {
-            var d = new Date();
+    computed: {
+        dateStr: function () {
+            var d = this.day;
             return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate()
+        }
+    },
+
+    methods: {
+        getDateFormat: function () {
+            var d = this.day;
+            return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate()
+        },
+        toLastDay: function () {
+            this.day = new Date(this.day - 24 * 60 * 60 * 1000);
         },
         notFuli: function (item) {
             console.log(item.type);
@@ -31,11 +43,22 @@ var demo = new Vue({
         getDayData: function () {
             var xhr = new XMLHttpRequest();
             var self = this;
-            xhr.open('GET', gankURL + this.getToday());
+            xhr.open('GET', gankURL + this.dateStr);
             xhr.onload = function () {
                 self.dayData = JSON.parse(xhr.responseText);
+
             };
             xhr.send()
         }
     }
+});
+
+vm.$watch('dayData', function (val) {
+    if (val.category.length === 0) {
+        this.toLastDay();
+    }
+});
+
+vm.$watch('day', function () {
+    this.getDayData();
 });

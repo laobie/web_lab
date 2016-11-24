@@ -8,11 +8,15 @@
 <body>
 <div id="app">
     <center><h1>每日干货</h1></center>
+    <center><span>{{ dateStr }}</span></center>
     <ul>
         <div v-for="fuli in dayData.results.福利">
-            <center><a href="{{fuli.url}}"> <img width="50%" style="margin-top: 16px" src="{{fuli.url}}"/> </a></center>
+            <center>
+                <a href="{{fuli.url}}" target="_blank">
+                    <img width="50%" style="margin-top: 16px" src="{{fuli.url}}"/>
+                </a>
+            </center>
         </div>
-
         <div class="post-category" v-for="category in dayData.results">
             <h4 v-if="$key!=='福利'">{{ $key }}</h4>
             <div v-for="item in category">
@@ -22,6 +26,10 @@
             </div>
         </div>
     </ul>
+
+    <center>
+        <button class="btn" @click="toLastDay">上一期内容</button>
+    </center>
 </div>
 
 <script src="gank/vue.min.js"></script>
