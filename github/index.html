@@ -6,36 +6,12 @@
   <link rel="stylesheet" href="github.css">
 </head>
 <body>
-<script type="text/x-template" id="grid-sheet">
-  <table>
-    <thead>
-    <tr>
-      <th v-for="key in columns"
-          @click="sortBy(key)"
-          :class="{active: sortKey == key}">
-        {{ key | capitalize}}
-        <span class="arrow"
-              :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="
-        entry in data
-        | filterBy filterKey
-        | orderBy sortKey sortOrders[sortKey]">
-      <td v-for="key in columns">
-        <a v-if="key==='name'" href="{{entry.html_url}}" target="_blank"> {{entry.name}}</a>
-        <span v-else>{{entry[key]}}</span>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</script>
 
 
 <div id="app">
+  <div class="page-header">
+    <h2>GitHub Data</h2>
+  </div>
 
   <center>
     <input v-model="userName" placeholder="input github id" @keyup.enter="update">
@@ -55,7 +31,36 @@
         :filter-key="searchQuery">
     </grid-sheet>
   </center>
+
 </div>
+
+<script type="text/x-template" id="grid-sheet">
+  <table>
+    <thead>
+    <tr>
+      <th v-for="column in columns"
+          @click="sortBy(column.key)"
+          :class="{active: sortKey == column.key}">
+        {{ column.title | capitalize}}
+        <span class="arrow"
+              :class="sortOrders[column.key] > 0 ? 'asc' : 'dsc'">
+          </span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="
+        entry in data
+        | filterBy filterKey
+        | orderBy sortKey sortOrders[sortKey]">
+      <td v-for="column in columns">
+        <a v-if="column.key==='name'" href="{{entry.html_url}}" target="_blank"> {{entry.name}}</a>
+        <span v-else>{{entry[column.key]}}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</script>
 
 <script src="../js/vue.min.js"></script>
 <script src="github.js"></script>

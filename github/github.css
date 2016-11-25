@@ -11,7 +11,7 @@ table {
 }
 
 th {
-  background-color: #0089cd;
+  background-color: #33b889;
   color: rgba(255, 255, 255, 0.66);
   cursor: pointer;
   -webkit-user-select: none;
@@ -19,13 +19,37 @@ th {
   -user-select: none;
 }
 
+input {;
+  margin: 0;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+button {
+  color: white;
+  border-radius: 3px;
+  background-color: #33b889;
+  border: 1px solid rgba(255, 255, 255, 0);
+  padding: 4px 16px;
+  margin: 0 8px;
+}
+
+.page-header {
+  text-align: center
+}
+
 td {
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
 }
 
 th, td {
   min-width: 120px;
   padding: 10px 20px;
+}
+
+td a {
+  color: #0063b8;
+  text-decoration: none;
 }
 
 th.active {

@@ -8,14 +8,16 @@ Vue.component('grid-sheet', {
   template: '#grid-sheet',
   props: {
     data: Array,
-    columns: Array,
+    columns: [
+      {title: '', key: ''}
+    ],
     filterKey: String
   },
 
   data: function () {
     var sortOrders = {};
-    this.columns.forEach(function (key) {
-      sortOrders[key] = 1
+    this.columns.forEach(function (column) {
+      sortOrders[column.key] = 1
     });
     return {
       sortKey: '',
@@ -39,7 +41,12 @@ var vm = new Vue({
     repos: [],
     page: 1,
     data: [],
-    columns: ['name', 'stargazers_count', 'forks_count'],
+    columns: [
+      {title: 'name', key: 'name'},
+      {title: 'language', key: 'language'},
+      {title: 'star', key: 'stargazers_count'},
+      {title: 'fork', key: 'forks_count'}
+    ],
     showFork: false
   },
 
@@ -47,7 +54,6 @@ var vm = new Vue({
     starsCount: function () {
       var count = 0;
       this.repos.forEach(function (item) {
-        console.log(item);
         count = count + item.stargazers_count;
       });
       return count;
