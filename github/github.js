@@ -37,7 +37,7 @@ var vm = new Vue({
   el: '#app',
 
   data: {
-    userName: 'laobie',
+    userName: 'JakeWharton',
     repos: [],
     page: 1,
     data: [],
