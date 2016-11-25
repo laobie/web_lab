@@ -39,12 +39,11 @@ var vm = new Vue({
     repos: [],
     page: 1,
     data: [],
-    columns: ['name', 'stargazers_count', 'forks_count']
+    columns: ['name', 'stargazers_count', 'forks_count'],
+    showFork: true
   },
 
-  computed: {
-
-  },
+  computed: {},
 
   created: function () {
     this.getRepos();
@@ -56,13 +55,14 @@ var vm = new Vue({
       console.log(key);
       return key === "name";
     },
+
     update: function () {
-      console.log(this.userName)
       if (this.userName) {
         this.page = 1;
         this.getRepos();
       }
     },
+
     getRepos: function () {
       var xhr = new XMLHttpRequest();
       var self = this;
@@ -75,15 +75,27 @@ var vm = new Vue({
           self.repos = [];
         }
         self.data = JSON.parse(xhr.responseText);
+
         self.repos = self.data.reduce(function (coll, item) {
           coll.push(item);
           return coll;
         }, self.repos);
+
+        if (!self.showFork) {
+          self.repos = self.repos.filter(function (item) {
+            return !item.fork;
+          });
+        }
+
       };
 
       xhr.send()
     }
   }
+});
+
+vm.$watch('showFork', function () {
+  this.update();
 });
 
 vm.$watch('data', function (val) {

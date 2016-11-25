@@ -40,6 +40,11 @@
   <center>
     <input v-model="userName" placeholder="input github id" @keyup.enter="update">
     <button @click="update">Update</button>
+
+    <input type="checkbox" id="chb" v-model="showFork">
+    <label v-if="showFork">显示 Fork 项目</label>
+    <label v-else>不显示 Fork 项目</label>
+
     <br>
     <grid-sheet
         :data="repos"
