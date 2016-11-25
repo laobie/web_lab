@@ -42,10 +42,13 @@
     <button @click="update">Update</button>
 
     <input type="checkbox" id="chb" v-model="showFork">
-    <label v-if="showFork">显示 Fork 项目</label>
-    <label v-else>不显示 Fork 项目</label>
+    <label for="chb">显示 Fork 项目</label>
 
-    <br>
+    <center style="margin: 16px">
+      <span>项目数目 {{repos.length}}</span>
+      <span>Star 总数 {{starsCount}}</span>
+    </center>
+
     <grid-sheet
         :data="repos"
         :columns="columns"

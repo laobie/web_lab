@@ -40,10 +40,19 @@ var vm = new Vue({
     page: 1,
     data: [],
     columns: ['name', 'stargazers_count', 'forks_count'],
-    showFork: true
+    showFork: false
   },
 
-  computed: {},
+  computed: {
+    starsCount: function () {
+      var count = 0;
+      this.repos.forEach(function (item) {
+        console.log(item);
+        count = count + item.stargazers_count;
+      });
+      return count;
+    }
+  },
 
   created: function () {
     this.getRepos();
