@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Gank</title>
-    <link rel="stylesheet" type="text/css" href="gank/gank.css">
+  <meta charset="UTF-8">
+  <title>Gank</title>
+  <link rel="stylesheet" type="text/css" href="gank/gank.css">
 </head>
 <body>
 <div id="app">
-    <center><h1>每日干货</h1></center>
-    <center><span>{{ dateStr }}</span></center>
-    <ul>
-        <div v-for="fuli in dayData.results.福利">
-            <center>
-                <a href="{{fuli.url}}" target="_blank">
-                    <img width="50%" style="margin-top: 16px" src="{{fuli.url}}"/>
-                </a>
-            </center>
-        </div>
-        <div class="post-category" v-for="category in dayData.results">
-            <h4 v-if="$key!=='福利'">{{ $key }}</h4>
-            <div v-for="item in category">
-                <li class="post-item" v-if="notFuli(item)">
-                    <a href="{{item.url}}" target="_blank">{{item.desc}}</a>
-                </li>
-            </div>
-        </div>
-    </ul>
+  <center><h1>每日干货</h1></center>
+  <center><span>{{ dateStr }}</span></center>
+  <ul>
+    <div v-for="fuli in dayData.results.福利">
+      <center>
+        <a href="{{fuli.url}}" target="_blank">
+          <img width="50%" style="margin-top: 16px" src="{{fuli.url}}"/>
+        </a>
+      </center>
+    </div>
+    <div class="post-category" v-for="category in dayData.results">
+      <h4 v-if="$key!=='福利'">{{ $key }}</h4>
+      <div v-for="item in category">
+        <li class="post-item" v-if="notFuli(item)">
+          <a href="{{item.url}}" target="_blank">{{item.desc}}</a>
+        </li>
+      </div>
+    </div>
+  </ul>
 
-    <center>
-        <button class="btn" @click="toLastDay">上一期内容</button>
-    </center>
+  <center>
+    <button class="btn" @click="toLastDay">上一期内容</button>
+  </center>
 </div>
 
 <script src="gank/vue.min.js"></script>
