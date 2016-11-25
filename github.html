@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub Data</title>
+  <link rel="stylesheet" href="github/github.css">
+</head>
+<body>
+<script type="text/x-template" id="grid-sheet">
+  <table>
+    <thead>
+    <tr>
+      <th v-for="key in columns"
+          @click="sortBy(key)"
+          :class="{active: sortKey == key}">
+        {{ key | capitalize}}
+        <span class="arrow"
+              :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="
+        entry in data
+        | filterBy filterKey
+        | orderBy sortKey sortOrders[sortKey]">
+      <td v-for="key in columns">
+        {{entry[key]}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</script>
+
+
+<div id="app">
+
+  <center>
+    <input v-model="userName" placeholder="input github id" @keyup.enter="update">
+    <button @click="update">Update</button>
+    <br>
+    <grid-sheet
+        :data="repos"
+        :columns="columns"
+        :filter-key="searchQuery">
+    </grid-sheet>
+  </center>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script src="github/github.js"></script>
+</body>
+</html>
