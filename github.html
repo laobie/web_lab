@@ -26,7 +26,8 @@
         | filterBy filterKey
         | orderBy sortKey sortOrders[sortKey]">
       <td v-for="key in columns">
-        {{entry[key]}}
+        <a v-if="key==='name'" href="{{entry.html_url}}" target="_blank"> {{entry.name}}</a>
+        <span v-else>{{entry[key]}}</span>
       </td>
     </tr>
     </tbody>

@@ -42,12 +42,20 @@ var vm = new Vue({
     columns: ['name', 'stargazers_count', 'forks_count']
   },
 
+  computed: {
+
+  },
+
   created: function () {
     this.getRepos();
   }
   ,
 
   methods: {
+    isName: function (key) {
+      console.log(key);
+      return key === "name";
+    },
     update: function () {
       console.log(this.userName)
       if (this.userName) {
