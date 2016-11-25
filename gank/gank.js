@@ -8,8 +8,6 @@ var vm = new Vue({
   el: '#app',
 
   data: {
-    branches: ['master', 'dev'],
-    currentBranch: 'master',
     day: new Date(),
     dayData: {
       category: [],
