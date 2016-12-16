@@ -1,0 +1,32 @@
+.member-content {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.member {
+  width: 96px;
+  margin: 8px;
+  float: left;
+  text-align: center;
+}
+
+.member-avatar {
+  width: 80px;
+  padding: 16px 0;
+  border-radius: 50%;
+}
+
+.member-id {
+  text-align: center;
+  font-size: 0.86em;
+  font-weight: bold;
+}
+
+.member a {
+  color: #1685dc;
+  text-decoration: none;
+}
+
+.member a:hover {
+  color: #16a6ff;
+}

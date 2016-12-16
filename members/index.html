@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Members</title>
+  <link rel="stylesheet" href="member.css">
+</head>
+<body>
+<div id="app">
+
+  <div class="member-content">
+
+    <div class="member" v-for="member in members">
+      <a href="{{member.html_url}}" target="_blank">
+        <img class="member-avatar" src="{{member.avatar_url}}"/>
+        <div class="member-id"> {{ member.login }}</div>
+      </a>
+    </div>
+  </div>
+
+
+  <!--<center>-->
+  <!--<h3>itsCoder 成员</h3>-->
+  <!--<table>-->
+  <!--<template v-for="i in members.length">-->
+  <!--<tr v-if="i % columnCount == 0">-->
+  <!--<template v-for="j in columnCount">-->
+  <!--<td v-if="i+j < members.length && i+j < i+columnCount" class="member">-->
+  <!--<a href="{{members[i+j].html_url}}" target="_blank">-->
+  <!--<img class="member-avatar" src="{{members[i+j].avatar_url}}"/>-->
+  <!--<div class="member-id">{{ members[i+j].login }}</div>-->
+  <!--</a>-->
+  <!--</td>-->
+  <!--</template>-->
+  <!--<td>-->
+  <!--</tr>-->
+  <!--</template>-->
+  <!--</table>-->
+  <!--</center>-->
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="member.js"></script>
+</body>
+</html>
