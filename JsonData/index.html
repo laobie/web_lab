@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
 <body>
-$END$
+
+<div id="app">
+
+  <div v-for="img in imgs">
+    <img width="160px" src="{{img.url}}">
+  </div>
+
+</div>
+
+<script src="../js/vue.min.js"></script>
+<script src="jsondata.js"></script>
+
 </body>
 </html>

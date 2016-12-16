@@ -1,7 +1,10 @@
+body {
+  background: #333;
+}
+
 .member-content {
   width: 90%;
   margin-left: 5%;
-  background: #333;
 }
 
 .member {
@@ -30,4 +33,11 @@
 
 .member a:hover {
   color: #16a6ff;
+}
+
+@media screen and (max-width: 768px) {
+  .member-content {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
