@@ -3,140 +3,136 @@
 
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
-    <div class="top-divider"> </div>
-    <div class="vertical-divider"></div>
-    <div class="group-part">
-        <div class="module-switch">
-            <img src="switch.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
+    <div id="app">
+        <template v-for="group in deviceGroups">
+            <div class="device-gropup">
+                <span class="group-name">{{ group.name }}</span>
+                <div class="group-device-list">
+                    <div class="device-module" v-for="device in group.devices">
+
+                        <img v-if="device.on" src="switch_on.svg" />
+                        <img v-else src="switch.svg" />
+                        <div class="value-pane">
+                            <div>
+                                <span class="attr-label">IA</span>
+                                <span class="attr-value">{{ device.ia }}A</span>
+                            </div>
+                            <div>
+                                <span class="attr-label">IB</span>
+                                <span class="attr-value">{{ device.ib }}V</span>
+                            </div>
+                            <div>
+                                <span class="attr-label">IC</span>
+                                <span class="attr-value">{{ device.ic }}W</span>
+                            </div>
+                            <div class="device-name">{{ device.name }}</div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
+            </div>
+        </template>
+        <!-- <div class="group-part">
+            <div class="module-switch">
+                <img src="switch.svg" />
+                <div class="value-pane">
+                    <div>
+                        <span>IA</span>
+                        <span>2A</span>
+                    </div>
+                    <div>
+                        <span>IB</span>
+                        <span>3V</span>
+                    </div>
+                    <div>
+                        <span>IC</span>
+                        <span>8W</span>
+                    </div>
                 </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
+            </div>
+            <div class="module-switch">
+                <img src="switch_on.svg" />
+                <div class="value-pane">
+                    <div>
+                        <span>IA</span>
+                        <span>2A</span>
+                    </div>
+                    <div>
+                        <span>IB</span>
+                        <span>3V</span>
+                    </div>
+                    <div>
+                        <span>IC</span>
+                        <span>8W</span>
+                    </div>
+                </div>
+            </div>
+            <div class="module-switch">
+                <img src="switch_on.svg" />
+                <div class="value-pane">
+                    <div>
+                        <span>IA</span>
+                        <span>2A</span>
+                    </div>
+                    <div>
+                        <span>IB</span>
+                        <span>3V</span>
+                    </div>
+                    <div>
+                        <span>IC</span>
+                        <span>8W</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="module-switch">
-            <img src="switch_on.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
-                </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
-                </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
-                </div>
-            </div>
-        </div>
-        <div class="module-switch">
-            <img src="switch_on.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
-                </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
-                </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
-                </div>
-            </div>
-        </div>
+        <div class="vertical-divider"></div> -->
     </div>
-    <div class="vertical-divider"></div>
-    <div class="group-part">
-        <div class="module-switch">
-            <img src="switch_on.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
-                </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
-                </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="vertical-divider"></div>
-    <div class="group-part">
-        <div class="module-switch">
-            <img src="switch.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
-                </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
-                </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
-                </div>
-            </div>
-        </div>
-        <div class="module-switch">
-            <img src="switch_on.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
-                </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
-                </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
-                </div>
-            </div>
-        </div>
-        <div class="module-switch">
-            <img src="switch_on.svg" />
-            <div class="value-pane">
-                <div>
-                    <span>IA</span>
-                    <span>2A</span>
-                </div>
-                <div>
-                    <span>IB</span>
-                    <span>3V</span>
-                </div>
-                <div>
-                    <span>IC</span>
-                    <span>8W</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="vertical-divider"></div>
 </body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            deviceGroups: []
+            // deviceGroups: [{
+            //     name: 'test',
+            //     devices: [{
+            //         name: 'test',
+            //         on: true,
+            //         ia: 1,
+            //         ib: 2,
+            //         ic: 3
+            //     }]
+            // }]
+        },
+        created: function () {
+            this.createRadomData()
+        },
+        methods: {
+            createRadomData: function () {
+                for (var i = 0; i < 100; i++) {
+                    let devices = []
+                    for (var j = 0; j < Math.random() * (20 - 10) + 10; j++) {
+                        devices.push({
+                            name: "设备" + j,
+                            on: Math.random() > 0.5,
+                            ia: 1,
+                            ib: 2,
+                            ic: 3
+                        })
+                    }
+                    var group = {
+                        'name': "设备组 " + i,
+                        'devices': devices
+                    }
+                    this.deviceGroups.push(group)
+                }
+            }
+        }
+    })
+</script>
 
 </html>

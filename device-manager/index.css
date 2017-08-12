@@ -1,0 +1,60 @@
+body {
+    margin: 20px;
+    padding: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.device-gropup {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.group-name {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: 500;
+}
+
+.group-device-list {
+    width: auto;
+    border-left: red 2px solid;
+    border-top: red 2px solid;
+}
+
+.top-divider {
+    background: red;
+    height: 2px;
+    width: 2000px;
+}
+
+.vertical-divider {
+    background: red;
+    height: 800px;
+    width: 2px;
+    display: inline-block;
+}
+
+.device-module {
+    display: block;
+    padding-right: 20px;
+    margin-top: 40px;
+    border-bottom: gray 1px dashed;
+    /* margin-left: -5px; */
+}
+
+.device-name {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 1.2em;
+}
+
+.group-part {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.value-pane {
+    padding: 10px;
+}
