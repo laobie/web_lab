@@ -55,26 +55,45 @@
         },
         created: function () {
             this.createRadomData()
+            this.switchFirst()
         },
         methods: {
             createRadomData: function () {
                 for (var i = 0; i < 10; i++) {
                     let devices = []
-                    for (var j = 0; j < Math.random() * (10 - 8) + 8; j++) {
+                    for (var j = 0; j < this.randomRange(8, 10); j++) {
                         devices.push({
-                            name: "设备" + j,
+                            name: "设备" + (j + 1),
                             on: Math.random() > 0.5,
-                            ia: 1,
-                            ib: 2,
-                            ic: 3
+                            ia: this.randomRange(1, 9),
+                            ib: this.randomRange(1, 9),
+                            ic: this.randomRange(1, 9)
                         })
                     }
                     var group = {
-                        'name': "设备组 " + i,
+                        'name': "设备组 " + (i + 1),
                         'devices': devices
                     }
                     this.deviceGroups.push(group)
                 }
+
+            },
+            switchFirst: function () {
+                console.log("ssssssssss")
+                setInterval(() => {
+                    if (this.deviceGroups.length > 1) {
+                        let firstDevice = this.deviceGroups[0].devices[0];
+                        firstDevice.on = !firstDevice.on
+                        firstDevice.ia = this.randomRange(1, 9)
+                        firstDevice.ib = this.randomRange(1, 9)
+                        firstDevice.ic = this.randomRange(1, 9)
+                        let sencondDevice = this.deviceGroups[1].devices[0]
+                        sencondDevice.on = !firstDevice.on
+                    }
+                }, 3000);
+            },
+            randomRange: function (min, max) {
+                return Math.round(Math.random() * (max - min) + min)
             }
         }
     })

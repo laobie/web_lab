@@ -39,9 +39,8 @@ body {
 .device-module {
     display: block;
     padding-right: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     border-bottom: gray 1px dashed;
-    /* margin-left: -5px; */
 }
 
 .device-name {
