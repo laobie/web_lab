@@ -3,8 +3,9 @@
 
 <head>
     <title></title>
+    <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
                 <span class="group-name">{{ group.name }}</span>
                 <div class="group-device-list">
                     <div class="device-module" v-for="device in group.devices">
-
+                        <div class="device-name">{{ device.name }}</div>
                         <img v-if="device.on" src="switch_on.svg" />
                         <img v-else src="switch.svg" />
                         <div class="value-pane">
@@ -30,67 +31,11 @@
                                 <span class="attr-label">IC</span>
                                 <span class="attr-value">{{ device.ic }}W</span>
                             </div>
-                            <div class="device-name">{{ device.name }}</div>
                         </div>
                     </div>
                 </div>
             </div>
         </template>
-        <!-- <div class="group-part">
-            <div class="module-switch">
-                <img src="switch.svg" />
-                <div class="value-pane">
-                    <div>
-                        <span>IA</span>
-                        <span>2A</span>
-                    </div>
-                    <div>
-                        <span>IB</span>
-                        <span>3V</span>
-                    </div>
-                    <div>
-                        <span>IC</span>
-                        <span>8W</span>
-                    </div>
-                </div>
-            </div>
-            <div class="module-switch">
-                <img src="switch_on.svg" />
-                <div class="value-pane">
-                    <div>
-                        <span>IA</span>
-                        <span>2A</span>
-                    </div>
-                    <div>
-                        <span>IB</span>
-                        <span>3V</span>
-                    </div>
-                    <div>
-                        <span>IC</span>
-                        <span>8W</span>
-                    </div>
-                </div>
-            </div>
-            <div class="module-switch">
-                <img src="switch_on.svg" />
-                <div class="value-pane">
-                    <div>
-                        <span>IA</span>
-                        <span>2A</span>
-                    </div>
-                    <div>
-                        <span>IB</span>
-                        <span>3V</span>
-                    </div>
-                    <div>
-                        <span>IC</span>
-                        <span>8W</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="vertical-divider"></div> -->
-    </div>
 </body>
 <script>
     var app = new Vue({
@@ -113,9 +58,9 @@
         },
         methods: {
             createRadomData: function () {
-                for (var i = 0; i < 100; i++) {
+                for (var i = 0; i < 10; i++) {
                     let devices = []
-                    for (var j = 0; j < Math.random() * (20 - 10) + 10; j++) {
+                    for (var j = 0; j < Math.random() * (10 - 8) + 8; j++) {
                         devices.push({
                             name: "设备" + j,
                             on: Math.random() > 0.5,
